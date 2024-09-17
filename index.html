@@ -50,12 +50,10 @@
     <ul>
         <li><span class="method">switch_player()</span>: Cambia el jugador actual entre "X" y "O".</li>
         <li><span class="method">check_winner()</span>: Verifica si hay un ganador en el juego ("Jugador (X u O) GANO").</li>
-        <li><span class="method">check_draw()</span>: Verifica si el juego ha terminado en empate ("Esto ha sido un Empate").</li>
-        <li><span class="method">reset_game()</span>: Reinicia el juego a su estado inicial.</li>
-        <li><span class="method">play_turn(row, col)</span>: Maneja la lógica de un turno cuando un jugador hace clic en una celda del tablero. Recibe la fila y la columna como parámetros y no devuelve nada.</li>
-    </ul>
+        <li><span class="method">handle_click()</span>: Verifica si el juego ha terminado en empate ("Esto ha sido un Empate").</li>
+        <li><span class="method">reset_game()</span>: Reinicia el juego a su estado inicial.</li>    </ul>
 
-    <h1>Clase CatBoard</h1>
+    <h1>Clase Board</h1>
     <h2>Propósito</h2>
     <p>Esta clase maneja la lógica del tablero, como la inicialización, actualización y verificación de su estado.</p>
     
@@ -66,7 +64,7 @@
     
     <h2>Métodos</h2>
     <ul>
-        <li><span class="method">initialize_board()</span>: Inicializa o reinicia el tablero.</li>
+        <li><span class="method">__init__()</span>: Inicializa o reinicia el tablero.</li>
         <li><span class="method">update_board(row, col, player)</span>: Actualiza el tablero con la jugada de un jugador en una posición específica.</li>
         <li><span class="method">is_cell_empty(row, col)</span>: Verifica si una celda específica está vacía. Recibe la fila y la columna y devuelve un booleano.</li>
         <li><span class="method">get_board_state()</span>: Devuelve el estado actual del tablero.</li>
