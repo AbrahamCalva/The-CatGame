@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>CatGame</h1>
-    <p>El juego funciona para dos personas, X y O. Este tablero consiste en 9 botones, establecidos en una cuadricula de 3x3. <br>
-         Empiza con un tablero vacío y los jugadores toman turnos para indicar su movimiento (iniciando con el primer movimiento O y el segundo X), <br>
-          el juego termina cuando un jugador gana teniendo tres lieneas consecutivas, en una columna, fila o en diagonal.</p>
+    <p>El juego funciona para dos personas, X y O. Este tablero consiste en 9 botones, establecidos en una cuadricula de
+        3x3. <br>
+        Empiza con un tablero vacío y los jugadores toman turnos para indicar su movimiento (iniciando con el primer
+        movimiento O y el segundo X), <br>
+        el juego termina cuando un jugador gana teniendo tres lieneas consecutivas, en una columna, fila o en diagonal.
+    </p>
 
-    <p>En general el juego hace lo siguiente:</p> 
+    <p>En general el juego hace lo siguiente:</p>
     <ul>
         <li>Inicia el juego en un loop.</li>
         <li>Imprime el estado actual del tablero</li>
@@ -21,7 +26,7 @@
         <li>Si terminó, mostrar que jugador a ganado.</li>
         <li>Reiniciar al cerrar la ventana.</li>
     </ul>
-      
+
     <h1>Implementación del Juego</h1>
     <ul>
         <li>Inicializamos el tablero con 9 botones vacíos.</li>
@@ -35,43 +40,46 @@
         <li>Si el juego terminó, reiniciar el juego al presionar OK.</li>
         <li>Si no terminó, pasarle la jugada al siguiente jugador.</li>
     </ul>
-    
+
     <h1>Clase Cat</h1>
     <h2>Propósito</h2>
-    <p>Esta clase sería el núcleo del juego, encargada de manejar la lógica principal y la interacción entre el tablero y los jugadores.</p>
-    
+    <p>Esta clase sería el núcleo del juego, encargada de manejar la lógica principal y la interacción entre el tablero
+        y los jugadores.</p>
+
     <h2>Atributos</h2>
     <ul>
         <li><span class="attribute">current_player</span>: Indica el jugador actual (X u O).</li>
         <li><span class="attribute">board</span>: Una matriz de 3x3 que representa el estado actual del tablero.</li>
     </ul>
-    
+
     <h2>Métodos</h2>
     <ul>
         <li><span class="method">switch_player()</span>: Cambia el jugador actual entre "X" y "O".</li>
-        <li><span class="method">check_winner()</span>: Verifica si hay un ganador en el juego ("Jugador (X u O) GANO").</li>
-        <li><span class="method">reset_game()</span>: Reinicia el juego a su estado inicial.</li>    </ul>
+        <li><span class="method">make_move()</span>: Marca el movimiento del jugador en el tablero.</li>
+        <li><span class="method">check_winner()</span>: Verifica si hay un ganador en el juego ("Jugador (X u O) GANO").
+        </li>
+        <li><span class="method">reset_game()</span>: Reinicia el juego a su estado inicial.</li>
+    </ul>
 
     <h1>Clase Board</h1>
     <h2>Propósito</h2>
     <p>Esta clase maneja la lógica del tablero, como la inicialización, actualización y verificación de su estado.</p>
-    
+
     <h2>Atributos</h2>
     <ul>
         <li><span class="attribute">board</span>: Una matriz de 3x3 que representa el tablero del juego.</li>
     </ul>
-    
+
     <h2>Métodos</h2>
     <ul>
         <li><span class="method">__init__()</span>: Inicializa el tablero.</li>
-        <li><span class="method">update_board(row, col, player)</span>: Actualiza el tablero con la jugada de un jugador en una posición específica.</li>
+        <li><span class="method">update_board(row, col, player)</span>: Actualiza el tablero con la jugada de un jugador
+            en una posición específica.</li>
         <li><span class="method">handle_click(): revisa empates </span></li>
-        <li><span class="method">is_cell_empty(row, col)</span>: Verifica si una celda específica está vacía. Recibe la fila y la columna y devuelve un booleano.</li>
+        <li><span class="method">is_cell_empty(row, col)</span>: Verifica si una celda específica está vacía. Recibe la
+            fila y la columna y devuelve un booleano.</li>
         <li><span class="method">get_board_state()</span>: Devuelve el estado actual del tablero.</li>
     </ul>
-
-    
-          
-          
 </body>
+
 </html>
