@@ -9,76 +9,44 @@
 
 <body>
     <h1>CatGame</h1>
-    <p>El juego funciona para dos personas, X y O. Este tablero consiste en 9 botones, establecidos en una cuadrícula de
-        3x3. <br>
-        Empiza con un tablero vacío y los jugadores toman turnos para indicar su movimiento (iniciando con el primer
-        movimiento O y el segundo X), <br>
-        el juego termina cuando un jugador gana teniendo tres líneas consecutivas, en una columna, fila o en diagonal.
+    Este código implementa el juego del Gato utilizando la biblioteca tkinter para la interfaz 
+    gráfica y contiene la lógica del juego en dos clases: Cat, que maneja las reglas y la lógica 
+    interna, y Board, que gestiona la interfaz gráfica y la interacción con el usuario. El juego 
+    permite a dos jugadores alternar turnos, hacer clic en las celdas para realizar movimientos, 
+    verificar si hay un ganador o empate, y reiniciar el juego cuando es necesario.
     </p>
 
     <p>En general el juego hace lo siguiente:</p>
     <ul>
-        <li>Inicia el juego en un loop.</li>
-        <li>Imprime el estado actual del tablero</li>
-        <li>Pregunta al jugador por su tirada (donde poner su marca).</li>
-        <li>Validar el input y actualizarlo.</li>
-        <li>Checar si el juego a terminado.</li>
-        <li>Si terminó, mostrar qué jugador ha ganado.</li>
-        <li>Reiniciar al cerrar la ventana.</li>
+        <li>Inicia el juego en una ventana grafica.</li>
+        <li>Alterna turnos entre los jugadores.</li>
+        <li>Permite hacer clic en las celdas del tablero para jugar.</li>
+        <li>Verifica si hay un ganador o empate.</li>
+        <li>Muestra un mensaje con el resultado.</li>
+        <li>Reinicia el juego cuando termina.</li>
     </ul>
 
-    <h1>Implementación del Juego</h1>
+    <h2>Clase Cat</h2>
+    <p class="attribute">current_player: Es un string que almacena el jugador actual, ya sea "O" o "X".</p>
+    <p class="attribute">board: Es una lista de listas (una matriz de 3x3) que representa el tablero del juego, donde cada celda puede contener "O" o "X".</p>
+    <h3>Métodos:</h3>
     <ul>
-        <li>Inicializamos el tablero con 9 botones vacíos.</li>
-        <li>Poner el jugador O.</li>
-        <li>Loopear el juego hasta que termine.</li>
-        <li>Imprimir el estado actual del tablero.</li>
-        <li>Preguntar al jugador dónde va a tirar.</li>
-        <li>Validar el input (si lo colocó en un lugar ya ocupado o vacío).</li>
-        <li>Recargar el tablero con los símbolos del juego actual.</li>
-        <li>Checar si el juego ha terminado (ganador o empate).</li>
-        <li>Si el juego terminó, reiniciar el juego al presionar OK.</li>
-        <li>Si no terminó, pasarle la jugada al siguiente jugador.</li>
+      <li><b>init()</b>:  <br>Constructor que inicializa el juego. Establece al jugador actual como "O" y crea un tablero vacío (una lista 3x3 llena de strings vacíos).</li>
+      <li><b>switch_player()</b>:  <br>Cambia el jugador actual. Si es "O", lo cambia a "X", y viceversa.</li>
+      <li><b>make_move(x, y)</b>:  <br>Intenta hacer un movimiento en la posición (x, y) del tablero. Si la celda está vacía, coloca el símbolo del jugador actual y devuelve True, indicando que el movimiento fue exitoso. Si la celda ya está ocupada, devuelve False.</li>
+      <li><b>check_winner()</b>:  <br>Verifica si el jugador actual ha ganado. Revisa si hay tres símbolos iguales en una fila, columna o diagonal. Si hay un ganador, devuelve True; de lo contrario, devuelve False.</li>
+      <li><b>reset_game()</b>:  <br>Reinicia el juego, estableciendo el tablero en blanco y asignando el turno al jugador "O".</li>
     </ul>
-
-    <h1>Clase Cat</h1>
-    <h2>Propósito</h2>
-    <p>Esta clase sería el núcleo del juego, encargada de manejar la lógica principal y la interacción entre el tablero
-        y los jugadores.</p>
-
-    <h2>Atributos</h2>
+    <h2>Clase Board</h2>
+    <p class="attribute"><b>root</b>: <br>Es la ventana principal de la aplicación gráfica, que pertenece al tipo Tk (de la biblioteca tkinter).</p>
+    <p class="attribute"><b>cat_game</b>: <br>Es una instancia de la clase Cat, que contiene la lógica del juego.</p>
+    <p class="attribute"><b>buttons</b>: <br>Es una lista de listas (una matriz de 3x3) de botones que representan las celdas del tablero en la interfaz gráfica. Cada botón está asociado a una celda en el tablero y permite a los jugadores hacer clic para realizar un movimiento.</p>
+    <h3>Métodos:</h3>
     <ul>
-        <li><span class="attribute">current_player</span>: Indica el jugador actual (X u O).</li>
-        <li><span class="attribute">board</span>: Una matriz de 3x3 que representa el estado actual del tablero.</li>
-    </ul>
-
-    <h2>Métodos</h2>
-    <ul>
-        <li><span class="method">__init__()</span>: Inicializa el tablero del juego y establece el jugador actual a "0".
-        </li>
-        <li><span class="method">switch_player()</span>: Cambia el jugador actual entre "X" y "O".</li>
-        <li><span class="method">make_move()</span>: Marca el movimiento del jugador en el tablero.</li>
-        <li><span class="method">check_winner()</span>: Verifica si hay un ganador en el juego ("Jugador (X u O) GANÓ").
-        </li>
-        <li><span class="method">reset_game()</span>: Reinicia el juego a su estado inicial.</li>
-    </ul>
-
-    <h1>Clase Board</h1>
-    <h2>Propósito</h2>
-    <p>Esta clase maneja la lógica del tablero, como la inicialización, actualización y verificación de su estado.</p>
-
-    <h2>Atributos</h2>
-    <ul>
-        <li><span class="attribute">board</span>: Una matriz de 3x3 que representa el tablero del juego.</li>
-    </ul>
-
-    <h2>Métodos</h2>
-    <ul>
-        <li><span class="method">__init__()</span>: Inicializa el tablero.</li>
-        <li><span class="method">handle_click(): Actualiza el texto del botón con el símbolo actual del jugador. </span>
-        </li>
-        <li><span class="method">reset_game()</span>: Llama al método de la clase cat "reset_game()" mediante la
-            instancia "self.cat_game = Cat()".</li>
+      <li><b>init(root)</b>: <br>Constructor que inicializa la interfaz gráfica. Crea la ventana principal del juego y el tablero de botones. Cada botón está asociado a un comando que llama al método handle_click.</li>
+      <li><b>handle_click(x, y)</b>:  <br>Maneja el evento de clic en una celda específica (x, y). Si el movimiento es válido (es decir, la celda está vacía), actualiza el texto del botón con el símbolo del jugador 
+        actual y verifica si hay un ganador. Si hay un ganador, muestra un mensaje de victoria y reinicia el juego. Si no hay movimientos válidos restantes, declara un empate y también reinicia el juego.</li>
+      <li><b>reset_game()</b>: <br>Reinicia el juego tanto en la lógica como en la interfaz gráfica. Borra el texto de todos los botones y reinicia el estado del juego llamando al método reset_game de la clase Cat.</li>
     </ul>
 </body>
 
