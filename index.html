@@ -9,11 +9,11 @@
 
 <body>
     <h1>CatGame</h1>
-    <p>El juego funciona para dos personas, X y O. Este tablero consiste en 9 botones, establecidos en una cuadricula de
+    <p>El juego funciona para dos personas, X y O. Este tablero consiste en 9 botones, establecidos en una cuadrícula de
         3x3. <br>
         Empiza con un tablero vacío y los jugadores toman turnos para indicar su movimiento (iniciando con el primer
         movimiento O y el segundo X), <br>
-        el juego termina cuando un jugador gana teniendo tres lieneas consecutivas, en una columna, fila o en diagonal.
+        el juego termina cuando un jugador gana teniendo tres líneas consecutivas, en una columna, fila o en diagonal.
     </p>
 
     <p>En general el juego hace lo siguiente:</p>
@@ -22,8 +22,8 @@
         <li>Imprime el estado actual del tablero</li>
         <li>Pregunta al jugador por su tirada (donde poner su marca).</li>
         <li>Validar el input y actualizarlo.</li>
-        <li>Checar si el juego ah terminado.</li>
-        <li>Si terminó, mostrar que jugador a ganado.</li>
+        <li>Checar si el juego a terminado.</li>
+        <li>Si terminó, mostrar qué jugador ha ganado.</li>
         <li>Reiniciar al cerrar la ventana.</li>
     </ul>
 
@@ -54,10 +54,11 @@
 
     <h2>Métodos</h2>
     <ul>
-        <li><span class="method">__init__()</span>: Inicializa el tablero del juego y establece el jugador actual a "0".</li>
+        <li><span class="method">__init__()</span>: Inicializa el tablero del juego y establece el jugador actual a "0".
+        </li>
         <li><span class="method">switch_player()</span>: Cambia el jugador actual entre "X" y "O".</li>
         <li><span class="method">make_move()</span>: Marca el movimiento del jugador en el tablero.</li>
-        <li><span class="method">check_winner()</span>: Verifica si hay un ganador en el juego ("Jugador (X u O) GANO").
+        <li><span class="method">check_winner()</span>: Verifica si hay un ganador en el juego ("Jugador (X u O) GANÓ").
         </li>
         <li><span class="method">reset_game()</span>: Reinicia el juego a su estado inicial.</li>
     </ul>
@@ -74,8 +75,10 @@
     <h2>Métodos</h2>
     <ul>
         <li><span class="method">__init__()</span>: Inicializa el tablero.</li>
-        <li><span class="method">handle_click(): Actualiza el texto del boton con el simbolo actual del jugador. </span></li>
-        <li><span class="method">reset_game()</span>: Llama al método de la clase cat "reset_game()" mediante la instancia "self.cat_game = Cat()".</li>
+        <li><span class="method">handle_click(): Actualiza el texto del botón con el símbolo actual del jugador. </span>
+        </li>
+        <li><span class="method">reset_game()</span>: Llama al método de la clase cat "reset_game()" mediante la
+            instancia "self.cat_game = Cat()".</li>
     </ul>
 </body>
 
